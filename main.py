@@ -1,30 +1,20 @@
-from pydoc import cli
 import streamlit as st
-import controllers.ClienteController as ClienteController
-import models.Cliente as cliente
+import pages.cliente.incluir as page_incluir_cliente
+import pages.cliente.consultar as page_consultar_clientes
+import pages.cliente.listar as page_listar_clientes
 
 st.sidebar.title("Menu")
 
-page_cliente = st.sidebar.selectbox('Cliente', ['Incluir', 'Alterar', 'Excluir', 'Consultar'])
+page_cliente = st.sidebar.selectbox('Cliente', ['Incluir', 'Alterar', 'Consultar', 'Consultar_DF'])
 
 if page_cliente == 'Incluir':
 
-    st.title("Incluir cliente")
+    page_incluir_cliente.incluir()
 
-    with st.form(key='include_cliente'):
-        input_name = st.text_input(label="Insira o seu nome")
-        input_age = st.number_input(label="Insira sus idade", format="%d", step=1)
-        input_occupation = st.selectbox(label="Selecione sua profissão", options=["Desenvolvedor", "Músico", "Designer", "Professor"])
-        input_button_submit = st.form_submit_button("Enviar")
+elif page_cliente == 'Consultar_DF':
+    
+    page_consultar_clientes.consultar()
 
-    if input_button_submit:
-        cliente.nome = input_name
-        cliente.idade = input_age
-        cliente.profissao = input_occupation
-
-        ClienteController.incluir(cliente)
-        st.success("Cliente incluído com sucessso!")
-
-elif page_cliente == 'Consultar':
-    df = ClienteController.exibir()
-    st.table(df)
+elif page_cliente == 'Listar':
+    
+    page_listar_clientes.listar()
