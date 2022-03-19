@@ -1,3 +1,4 @@
+from pydoc import cli
 import streamlit as st
 import controllers.ClienteController as ClienteController
 import models.Cliente as cliente
@@ -15,4 +16,5 @@ if input_button_submit:
     cliente.idade = input_age
     cliente.profissao = input_occupation
 
-    ClienteController.incluir()
+    ClienteController.incluir(cliente)
+    st.success("Cliente incluído com sucessso!")
