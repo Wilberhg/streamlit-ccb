@@ -5,7 +5,7 @@ import pages.cliente.listar as page_listar_clientes
 
 st.sidebar.title("Menu")
 
-page_cliente = st.sidebar.selectbox('Cliente', ['Incluir', 'Alterar', 'Consultar', 'Consultar_DF'])
+page_cliente = st.sidebar.selectbox('Cliente', ['Incluir', 'Alterar', 'Listar', 'Consultar_DF'])
 
 if page_cliente == 'Incluir':
 
