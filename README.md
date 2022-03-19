@@ -42,6 +42,6 @@ Rode o script
   streamlit run main.py
 ```
 
-## Authors
+## Autor
 
 - [@Wilberhg](https://www.github.com/Wilberhg)
